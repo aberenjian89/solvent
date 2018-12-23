@@ -1,18 +1,11 @@
 import React from 'react';
 import App from './app';
+import { Provider } from 'react-redux'
 
-class Root extends React.Component{
-  constructor(props){
-    super(props)
-  }
-
-  render(){
-    return(
-      <div>
-        <App/>
-      </div>
-    )
-  }
-}
+const Root = ({store}) =>(
+  <Provider store={store}>
+    <App/>
+  </Provider>
+);
 
 export default Root;
