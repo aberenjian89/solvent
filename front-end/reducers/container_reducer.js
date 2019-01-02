@@ -7,9 +7,10 @@ const ContainerReducer = (state={},action)=>{
   
   switch(action.type){
     case NAVIGATION_CHANGED:
-      let nextState = {};
-      nextState[nav-panel] = action.status
-      return merge({},state,nextState)
+      let next_state = {}  
+      next_state['panel_status'] = action.status 
+      next_state['panel_class'] = action.class_name
+      return Object.assign({},state,next_state)
     default:
       return state
   }
