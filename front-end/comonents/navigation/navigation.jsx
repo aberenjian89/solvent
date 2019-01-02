@@ -1,8 +1,7 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Divider from '@material-ui/core/Divider';
-
-
+import navigation_container from './navigation_container'
 
 class Navigation extends React.Component{
   constructor(props){
@@ -14,6 +13,11 @@ class Navigation extends React.Component{
     this.switchpanelstatus = this.switchpanelstatus.bind(this)
     this.closerender = this.closerender.bind(this)
     this.openrender = this.openrender.bind(this)
+  }
+
+  componentDidMount(){
+    debugger
+    this.props.toggleStatus(this.state.open,this.state.class)
   }
 
   switchpanelstatus(e){
