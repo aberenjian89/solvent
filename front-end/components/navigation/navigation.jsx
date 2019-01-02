@@ -1,7 +1,6 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Divider from '@material-ui/core/Divider';
-import navigation_container from './navigation_container'
 
 class Navigation extends React.Component{
   constructor(props){
@@ -15,27 +14,29 @@ class Navigation extends React.Component{
     this.openrender = this.openrender.bind(this)
   }
 
-  componentDidMount(){
-    debugger
+  componentDidMount(props){
+    this.props.toggleStatus(this.state.open,this.state.class)
+  }
+
+  componentDidUpdate(props){
     this.props.toggleStatus(this.state.open,this.state.class)
   }
 
   switchpanelstatus(e){
-    let status;
-    let class_name;
+    
     if (this.state.open){
-
-      status = false
-      class_name = 'container-close'
+      this.setState({
+        open: false,
+        class: 'container-close'
+      })
     }else{
-      status = true,
-      class_name = 'container-open'
+      this.setState({
+        open: true,
+        class: 'container-open'
+      })
     }
-    return this.setState({
-      open: status,
-      class: class_name
-    })
   }
+
   closerender(){
     return (
       <div>
@@ -73,7 +74,7 @@ class Navigation extends React.Component{
     return (
       <div className="navigation">
         <AppBar className={this.state.class} color="default">
-            {final_render}
+           {final_render}
         </AppBar>
       </div>
     )
