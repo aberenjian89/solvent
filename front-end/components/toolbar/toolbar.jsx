@@ -12,7 +12,6 @@ export default class AppToolbar extends React.Component{
   }
 
   componentWillReceiveProps(nextprops){
-    debugger
     if (nextprops.container.panel_status != this.state.open){
       this.setState({
         open: nextprops.container.panel_status
@@ -22,10 +21,10 @@ export default class AppToolbar extends React.Component{
 
   render(){
     return(
-      <div>
-        <AppBar color="default" position="relative">
+      <div className="appbar">
+        <AppBar color="default" className={!this.state.open ? 'toolbar-close' : 'toolbar-expand' }>
           <Toolbar>
-
+              
           </Toolbar>
         </AppBar>
       </div>
