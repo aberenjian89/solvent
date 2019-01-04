@@ -6,4 +6,3 @@ export const navigation_changed = (status,class_name)=>({
     status,
     class_name
 })
-
