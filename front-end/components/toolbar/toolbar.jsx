@@ -8,15 +8,23 @@ import { Menu,MenuItem } from '@material-ui/core';
 
 const toolbar_style = {
   display: 'flex',
-  justifyContent: 'flex-end'
+  justifyContent: 'flex-end',
+  paddingRight: '0',
 }
 
-const styles = theme =>({
-  root:{
-    top: '64px',
-    width: '100px'
-  }
-})
+const toolbar_button = {
+  minHeight: '60px',
+  minWidth: '130px',
+  borderRadius: '0'
+}
+
+const menu_style = {
+  top: '48px',
+  left: '0',
+  right: '0'
+}
+
+
 
 class AppToolbar extends React.Component{
   constructor(props){
@@ -59,6 +67,7 @@ class AppToolbar extends React.Component{
               <Button
                 aria-owns={anchorEl ? 'open-menu' : undefined }
                 aria-haspopup="true"
+                style={toolbar_button}
                 onClick={this.handleOpen}>
                   Account
               </Button>
@@ -66,6 +75,7 @@ class AppToolbar extends React.Component{
                 id="open-menu"
                 anchorEl={anchorEl}
                 open={Boolean(anchorEl)}
+                style={menu_style}
                 onClose={this.handleClose}>
                 <MenuItem>Settings</MenuItem>
                 <MenuItem>Logout</MenuItem>
