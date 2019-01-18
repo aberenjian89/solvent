@@ -10,14 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_04_205507) do
+ActiveRecord::Schema.define(version: 2019_01_18_181959) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
-    t.text "description"
     t.string "subdomain"
     t.string "domain"
-    t.integer "number_user"
     t.integer "account_owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -36,6 +34,11 @@ ActiveRecord::Schema.define(version: 2019_01_04_205507) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "company_id", default: 0, null: false
+    t.string "title", default: "", null: false
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
+    t.string "phone", default: "", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

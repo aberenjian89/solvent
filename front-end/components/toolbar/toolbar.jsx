@@ -3,7 +3,6 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Button from '@material-ui/core/Button'
 import { Menu,MenuItem } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
 
  
 
@@ -67,8 +66,7 @@ class AppToolbar extends React.Component{
                 id="open-menu"
                 anchorEl={anchorEl}
                 open={Boolean(anchorEl)}
-                onClose={this.handleClose}
-                classes ={{root: classes.root}}>
+                onClose={this.handleClose}>
                 <MenuItem>Settings</MenuItem>
                 <MenuItem>Logout</MenuItem>
               </Menu>
@@ -81,5 +79,5 @@ class AppToolbar extends React.Component{
 }
 
 
-export default withStyles(styles)(AppToolbar);
+export default AppToolbar;
 
